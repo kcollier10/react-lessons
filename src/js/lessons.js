@@ -166,3 +166,142 @@ secretMessage.unshift('Programming');
 secretMessage.splice(6, 5, 'know');
 console.log(secretMessage.slice(',').join(' '));
 // ---------------------------------------
+const bobsFollowers = ['Jack', 'Linda', 'Maya', 'Nicole'];
+const tinasFollowers = ['Maya', 'Lucas', 'Jack'];
+let mutualFollowers = [];
+for (let b = 0; b < bobsFollowers.length; b++) {
+    for (let t = 0; t < tinasFollowers.length; t++) {
+        if (bobsFollowers[b] === tinasFollowers[t]) {
+            mutualFollowers.push(tinasFollowers[t]);
+            console.log(mutualFollowers);
+        }
+    }
+}
+// ---------------------------------------
+// LOOP EXAMPLES
+const bobsFollowers = ['Jack', 'Linda', 'Maya', 'Nicole'];
+const tinasFollowers = ['Maya', 'Lucas', 'Jack'];
+let mutualFollowers = [];
+for (let b = 0; b < bobsFollowers.length; b++) {
+    for (let t = 0; t < tinasFollowers.length; t++) {
+        if (bobsFollowers[b] === tinasFollowers[t]) {
+            mutualFollowers.push(tinasFollowers[t]);
+            console.log(mutualFollowers);
+        }
+    }
+}
+const cards = ['diamond', 'spade', 'heart', 'club'];
+let currentCard;
+while (currentCard != 'spade') {
+    currentCard = cards[Math.floor(Math.random() * 4)];
+    console.log(currentCard);
+}
+let cupsOfSugarNeeded = 1.5;
+let cupsAdded = 0;
+do {
+    cupsAdded++;
+    console.log(cupsAdded);
+} while (cupsOfSugarNeeded > cupsAdded)
+const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+for (let i = 0; i < rapperArray.length; i++) {
+    console.log(rapperArray[i]);
+    if (rapperArray[i] == 'Notorious B.I.G.') {
+        break;
+    }
+}
+const rapperArray = ["Lil' Kim", "Jay-Z", "Notorious B.I.G.", "Tupac"];
+for (let i = 0; i < rapperArray.length; i++) {
+    console.log(rapperArray[i]);
+    if (rapperArray[i] === 'Notorious B.I.G.') {
+        break;
+    }
+}
+console.log("And if you don't know, now you know.");
+console.log("And if you don't know, now you know.");
+let input = "Hello I am a whale".toLowerCase();
+let vowels = ['a', 'e', 'i', 'o', 'u'];
+let bucket = [];
+for (let i = 0; i < input.length; i++) {
+    for (let v = 0; v < vowels.length; v++) {
+        if (input[i] === vowels[v]) {
+            bucket.push(vowels[v]);
+        }
+    }
+    if (input[i] === 'e') {
+        bucket.push(input[i]);
+    } else if (input[i] === 'u') {
+        bucket.push(input[i] * 2)
+    }
+}
+console.log(bucket.join('').toUpperCase());
+// ---------------------------------------
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+    for(let i = 1; i <= 1000000; i++) {
+        if ( (2 + 2) != 4) {
+            console.log('Something has gone very wrong :( ');
+        }
+    }
+};
+const addTwo = num => num + 2;
+const timeFuncRuntime = funcParameter => {
+    let t1 = Date.now();
+    funcParameter();
+    let t2 = Date.now();
+    return t2 - t1;
+};
+let time2p2 = timeFuncRuntime(checkThatTwoPlusTwoEqualsFourAMillionTimes);
+const checkConsistentOutput = (func, val) => {
+    let test1 = func(val);
+    let test2 = func(val);
+    if (test1 === test2) {
+        return test1;
+    } else {
+        return 'This function returned inconsistent results';
+    }
+};
+checkConsistentOutput(addTwo, 7);
+console.log(checkConsistentOutput(addTwo, 7));
+// ---------------------------------------
+const artists = ['Picasso', 'Kahlo', 'Matisse', 'Utamaro'];
+artists.forEach(artist => {
+    console.log(artist + ' is one of my favorite artists.');
+});
+const numbers = [1, 2, 3, 4, 5];
+const squareNumbers = numbers.map(number => {
+    return number * number;
+});
+console.log(squareNumbers);
+const things = ['desk', 'chair', 5, 'backpack', 3.14, 100];
+const onlyNumbers = things.filter(thing => {
+    return typeof thing === 'number';
+});
+console.log(onlyNumbers);
+
+const fruits = ['mango', 'papaya', 'pineapple', 'apple'];
+fruits.forEach(function(fruit) {
+    console.log('I want to eat a ' + fruit);
+});
+
+const animals = ['Hen', 'elephant', 'llama', 'leopard', 'ostrich', 'Whale', 'octopus', 'rabbit', 'lion', 'dog'];
+const secretMessage = animals.map(animal => animal[0])
+console.log(secretMessage.join(''));
+const bigNumbers = [100, 200, 300, 400, 500];
+const smallNumbers = bigNumbers.map(number => number / 100);
+// ---------------------------------------
+const randomNumbers = [375, 200, 3.14, 7, 13, 852];
+const smallNumbers = randomNumbers.filter(number => {
+    return number < 250;
+});
+const favoriteWords = ['nostalgia', 'hyperbole', 'fervent', 'esoteric', 'serene'];
+const longFavoriteWords = favoriteWords.filter(word => {
+    return word.length > 7;
+});
+// ---------------------------------------
+const animals = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
+const foundAnimal = animals.findIndex(animal => {
+    return animal === 'elephant';
+});
+const startsWithS = animals.findIndex(animal => {
+    return animal[0] === 's';
+});
+// ---------------------------------------
