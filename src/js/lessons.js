@@ -305,3 +305,456 @@ const startsWithS = animals.findIndex(animal => {
     return animal[0] === 's';
 });
 // ---------------------------------------
+const newNumbers = [1, 3, 5, 7];
+const newSum = newNumbers.reduce((accumulator, currentValue) => {
+    console.log('The value of accumulator: ', accumulator);
+    console.log('The value of currentValue: ', currentValue);
+    return currentValue + accumulator;
+}, 10);
+const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+console.log(words.some((word) => {
+    return word.length < 6;
+}));
+const interestingWords = words.filter(word => {
+    return word.length > 5;
+});
+console.log(interestingWords.every(word => {
+        return word.length > 5
+    }
+));
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
+const nums = [1, 50, 75, 200, 350, 525, 1000];
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
+const longCities = cities.filter(city => city.length > 7);
+const word = cities.reduce((acc, currVal) => {
+    return acc + currVal[0]
+}, "C");
+console.log(word)
+const smallerNums = nums.map(num => num - 5);
+nums.every(num => num < 0);
+// ---------------------------------------
+let story = 'Last weekend, I took literally the most beautiful bike ride of my life. The route is called "The 9W to Nyack" and it actually stretches all the way from Riverside Park in Manhattan to South Nyack, New Jersey. It\'s really an adventure from beginning to end! It is a 48 mile loop and it basically took me an entire day. I stopped at Riverbank State Park to take some extremely artsy photos. It was a short stop, though, because I had a really long way left to go. After a quick photo op at the very popular Little Red Lighthouse, I began my trek across the George Washington Bridge into New Jersey.  The GW is actually very long - 4,760 feet! I was already very tired by the time I got to the other side.  An hour later, I reached Greenbrook Nature Sanctuary, an extremely beautiful park along the coast of the Hudson.  Something that was very surprising to me was that near the end of the route you actually cross back into New York! At this point, you are very close to the end.';
+let overusedWords = ['really', 'very', 'basically'];
+let unnecessaryWords = ['extremely', 'literally', 'actually' ];
+let storyWords = story.split(' ');
+console.log(story.length);
+let betterWords = storyWords.filter(word => {
+    return !unnecessaryWords.includes(word);
+});
+let revisedWordLength = betterWords.length;
+let reallyOveruse = 0;
+let veryOveruse = 0;
+let basicallyOveruse = 0;
+for (word of storyWords) {
+    if (word === 'really') {
+        reallyOveruse += 1;
+    } else if (word === 'very') {
+        veryOveruse += 1;
+    } else if (word === 'basically') {
+        basicallyOveruse += 1;
+    }
+}
+console.log('really: ' + reallyOveruse);
+console.log('very: ' + veryOveruse);
+console.log('basically: ' + basicallyOveruse);
+let sentenceCount = 0;
+betterWords.filter(word => {
+    if (word[word.length - 1] === '.' || word[word.length - 1] === '!') {
+        sentenceCount++;
+    }
+});
+console.log(sentenceCount);
+let totalOveruse = reallyOveruse + basicallyOveruse + veryOveruse;
+console.log('Word count: ' + revisedWordLength);
+console.log('Sentence count: ' + sentenceCount);
+console.log('Total number of overused words: ' + totalOveruse);
+console.log('Revised work: ' + betterWords.join(' '));
+// ---------------------------------------
+// OBJECTS
+let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth',
+    color: 'silver',
+    'Secret Mission' : 'Discover life outside of Earth.'
+};
+spaceship.color = 'glorious gold';
+spaceship.numEngines = 7;
+delete spaceship['Secret Mission'];
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+const alienShip = {
+    retreat () {
+        console.log(retreatMessage);
+    },
+    takeOff () {
+        console.log('Spim... Borp... Glix... Blastoff!');
+    }
+}
+alienShip.retreat();
+alienShip.takeOff();
+let spaceship = {
+    passengers: [{
+        name: 'Lebron James'
+    }],
+    telescope: {
+        yearBuilt: 2018,
+        model: "91031-XLT",
+        focalLength: 2032
+    },
+    crew: {
+        captain: {
+            name: 'Sandra',
+            degree: 'Computer Engineering',
+            encourageTeam() { console.log('We got this!') },
+            'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+    },
+    engine: {
+        model: "Nimbus2000"
+    },
+    nanoelectronics: {
+        computer: {
+            terabytes: 100,
+            monitors: "HD"
+        },
+        'back-up': {
+            battery: "Lithium",
+            terabytes: 50
+        }
+    }
+};
+let capFave = spaceship.crew.captain['favorite foods'][0];
+passengers : [{name: "Lebron James"}];
+let firstPassenger = spaceship.passengers[0];
+let spaceship = {
+    'Fuel Type' : 'Turbo Fuel',
+    homePlanet : 'Earth'
+};
+let greenEnergy = spaceship => {
+    spaceship['Fuel Type'] = 'avocado oil';
+};
+let remotelyDisable = spaceship => {
+    spaceship.disabled = true;
+};
+greenEnergy(spaceship);
+remotelyDisable(spaceship);
+// ---------------------------------------
+let spaceship = {
+    crew: {
+        captain: {
+            name: 'Lily',
+            degree: 'Computer Engineering',
+            cheerTeam() { console.log('You got this!') }
+        },
+        'chief officer': {
+            name: 'Dan',
+            degree: 'Aerospace Engineering',
+            agree() { console.log('I agree, captain!') }
+        },
+        medic: {
+            name: 'Clementine',
+            degree: 'Physics',
+            announce() { console.log(`Jets on!`) } },
+        translator: {
+            name: 'Shauna',
+            degree: 'Conservation Science',
+            powerFuel() { console.log('The tank is full!') }
+        }
+    }
+};
+for (let crewmate in spaceship.crew) {
+    console.log(`${crewmate}: ${spaceship.crew[crewmate].name}`);
+}
+for (let crewmate in spaceship.crew) {
+    console.log(`${spaceship.crew[crewmate].name}: ${spaceship.crew[crewmate].degree}`);
+}
+// ---------------------------------------
+const robot = {
+    model: '1E78V2',
+    energyLevel: 100,
+    provideInfo() {
+        return `I am ${this.model} and my current energy level is ${this.energyLevel}.`
+    }
+};
+robot.provideInfo();
+const robot = {
+    _energyLevel: 100,
+    recharge(){
+        this._energyLevel += 30;
+        console.log(`Recharged! Energy is currently at ${this._energyLevel}%.`)
+    }
+};
+robot._energyLevel = 'high';
+robot.recharge();
+// type coercion error
+// getter and setters in JAVASCRIPT :o
+const robot = {
+    _model: '1E78V2',
+    _energyLevel: 100,
+    get energyLevel () {
+        if (typeof this._energyLevel === 'number') {
+            return `My current energy level is ${this._energyLevel}`;
+        } else {
+            return 'System malfunction: cannot retrieve energy level';
+        }
+    }
+};
+console.log(robot.energyLevel);
+const robot = {
+    _model: '1E78V2',
+    _energyLevel: 100,
+    _numOfSensors: 15,
+    get numOfSensors(){
+        if(typeof this._numOfSensors === 'number'){
+            return this._numOfSensors;
+        } else {
+            return 'Sensors are currently down.'
+        }
+    },
+    set numOfSensors(num) {
+        if (typeof num === 'number' && num >= 0) {
+            return this._numOfSensors = num;
+        } else {
+            return 'Pass in a number that is greater than or equal to 0';
+        }
+    }
+};
+robot.numOfSensors = 100;
+console.log(robot.numOfSensors);
+const robotFactory = (model, mobile) => {
+    return {
+        model: model,
+        mobile: mobile,
+        beep() {
+            console.log('Beep Boop');
+        }}}
+const tinCan = robotFactory('P-500', true);
+tinCan.beep();
+function robotFactory(model, mobile){
+    return {
+        model,
+        mobile,
+        beep() {
+            console.log('Beep Boop');
+        }}}
+// DESTRUCTURED ASSIGNMENT
+const robot = {
+    model: '1E78V2',
+    energyLevel: 100,
+    functionality: {
+        beep() {
+            console.log('Beep Boop');
+        },
+        fireLaser() {
+            console.log('Pew Pew');
+        },
+    }
+};
+const { functionality } = robot;
+functionality.beep();
+const robot = {
+    model: 'SAL-1000',
+    mobile: true,
+    sentient: false,
+    armor: 'Steel-plated',
+    energyLevel: 75
+};
+const robotKeys = Object.keys(robot);
+const robotEntries = Object.entries(robot);
+const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true});
+// ---------------------------------------
+// menu exercises
+const menu = {
+    _courses: {
+        appetizers: [],
+        mains: [],
+        desserts: []
+    },
+    get appetizers () {
+        return this._courses.appetizers;
+    },
+    set appetizers (appetizers) {
+        return this._courses.appetizers = appetizers;
+    },
+    get mains () {
+        return this._courses.mains;
+    },
+    set mains (mains) {
+        return this._courses.mains = mains;
+    },
+    get desserts () {
+        return this._courses.desserts;
+    },
+    set desserts (desserts) {
+        return this._courses.desserts = desserts;
+    },
+    get courses () {
+        return {
+            appetizers: this.appetizers,
+            mains: this.mains,
+            desserts: this.desserts
+        }
+    },
+    addDishToCourse(courseName, dishName, dishPrice) {
+        const dish = {
+            name: dishName,
+            price: dishPrice
+        };
+        return this._courses[courseName].push(dish);
+    },
+    getRandomDishFromCourse(courseName) {
+        const dishes = this._courses[courseName];
+        const random = Math.floor(Math.random() * dishes.length);
+        return dishes[random];
+    },
+    generateRandomMeal() {
+        const appetizers = this.getRandomDishFromCourse('appetizers');
+        const mains = this.getRandomDishFromCourse('mains');
+        const desserts = this.getRandomDishFromCourse('desserts');
+        const totalPrice = appetizer.price + main.price + dessert.price;
+        return `Your meal is ${appetizer.name}, ${main.name}, and ${dessert.name}, and the total price is ${totalPrice}`;
+    }
+};
+menu.addDishToCourse('appetizers', 'chips and queso', 6.00);
+menu.addDishToCourse('mains', 'green chile enchiladas', 6.00);
+menu.addDishToCourse('desserts', 'sopapilla', 6.00);
+// ---------------------------------------
+const team = {
+    _players: [
+        {
+            firstName: 'Lebron',
+            lastName: 'James',
+            age: 35
+        },
+        {
+            firstName: 'Mia',
+            lastName: 'Hamm',
+            age: 45
+        },
+        {
+            firstName: 'Tim',
+            lastName: 'Duncan',
+            age: 50
+        }
+    ],
+    _games: [
+        {
+            opponent: 'Spurs',
+            teamPoints: 400,
+            opponentPoints: 7
+        },
+        {
+            opponent: 'UT',
+            teamPoints: 3,
+            opponentPoints: 67
+        },
+        {
+            opponent: 'Celtics',
+            teamPoints: 600,
+            opponentPoints: 7
+        }
+    ],
+    get players () {
+        return this._players;
+    },
+    get games () {
+        return this._games;
+    },
+    addPlayer (firstName, lastName, age) {
+        let player = {
+            firstName: firstName,
+            lastName: lastName,
+            age: age
+        };
+        this.players.push(player);
+    },
+    addGame(opponent, teamPoints, opponentPoints) {
+        const game = {
+            opponent: opponent,
+            teamPoints: teamPoints,
+            opponentPoints: opponentPoints
+        };
+        this.games.push(game);
+    }
+}
+team.addPlayer('Steph', 'Curry', 28);
+team.addPlayer('Lisa', 'Leslie', 44);
+team.addPlayer('Bugs', 'Bunny', 76);
+team.addGame('Spurs vs Celtics', 800, 30);
+team.addGame('TAMU vs UT', 6, 400);
+// ---------------------------------------
+// JAVASCRIPT CLASSES
+class Dog {
+    constructor(name) {
+        this._name = name;
+        this._behavior = 0;
+    }
+    get name() {
+        return this._name;
+    }
+    get behavior() {
+        return this._behavior;
+    }
+    incrementBehavior() {
+        this._behavior ++;
+    }
+}
+const halley = new Dog('Halley');
+halley.incrementBehavior(); // Add one to behavior
+class Surgeon {
+    constructor(name, department, remainingVacationDays) {
+        this._name = name;
+        this._department = department;
+        this._remainingVacationDays = 20;
+    }
+    get name() {
+        return this._name;
+    }
+    get department () {
+        return this._department;
+    }
+    get remainingVacationDays () {
+        return this._remainingVacationDays;
+    }
+    takeVacationDays (daysOff) {
+        this._remainingVacationDays -= daysOff;
+    }
+}
+const surgeonRomero = new Surgeon('Francisco Romero', 'Cardiovascular');
+const surgeonJackson = new Surgeon('Ruth Jackson', 'Orthopedics');
+surgeonRomero.takeVacationDays(3);
+class HospitalEmployee {
+    constructor(name) {
+        this._name = name;
+        this._remainingVacationDays = 20;
+    }
+    get name() {
+        return this._name;
+    }
+    get remainingVacationDays() {
+        return this._remainingVacationDays;
+    }
+    takeVacationDays(daysOff) {
+        this._remainingVacationDays -= daysOff;
+    }
+    static generatePassword () {
+        return Math.floor(Math.random() * 10000);
+    }
+}
+class Nurse extends HospitalEmployee {
+    constructor(name, certifications) {
+        super(name);
+        this._certifications = certifications;
+    }
+    get certifications() {
+        return this._certifications;
+    }
+    addCertification(newCertification) {
+        this.certifications.push(newCertification);
+    }
+}
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma','Pediatrics']);
+nurseOlynyk.takeVacationDays(5);
+console.log(nurseOlynyk.remainingVacationDays);
+nurseOlynyk.addCertification('Genetics');
+console.log(nurseOlynyk.certifications);
+// ---------------------------------------
+// ---------------------------------------
