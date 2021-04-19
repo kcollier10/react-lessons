@@ -757,4 +757,9 @@ console.log(nurseOlynyk.remainingVacationDays);
 nurseOlynyk.addCertification('Genetics');
 console.log(nurseOlynyk.certifications);
 // ---------------------------------------
+const nurseJohn = new Nurse('John', ['ER','Trauma']);
+nurseJohn.takeVacationDays(6);
+console.log(nurseJohn.remainingVacationDays);
+nurseJohn.addCertification('Labs');
+console.log(nurseJohn.certifications);
 // ---------------------------------------
