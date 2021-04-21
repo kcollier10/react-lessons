@@ -484,8 +484,6 @@ const robot = {
 };
 robot._energyLevel = 'high';
 robot.recharge();
-// type coercion error
-// getter and setters in JAVASCRIPT :o
 const robot = {
     _model: '1E78V2',
     _energyLevel: 100,
