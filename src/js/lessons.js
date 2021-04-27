@@ -678,3 +678,54 @@ team.addPlayer('Lisa', 'Leslie', 44);
 team.addPlayer('Bugs', 'Bunny', 76);
 team.addGame('Spurs vs Celtics', 800, 30);
 team.addGame('TAMU vs UT', 6, 400);
+
+(function () {
+
+    "use strict";
+
+    function climbingStairsA (totalSteps) {
+        if (totalSteps <= 0) {
+            return 0;
+        } else if (totalSteps == 1) {
+            return 1;
+        } else if (totalSteps == 2) {
+            return 2;
+        } else if (totalSteps == 3) {
+            return 3;
+        } else {
+            return climbingStairsA(totalSteps - 1) + climbingStairsA(totalSteps - 2);
+        }
+    }
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 1 + "] total stairs, is " + climbingStairsA(1) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 2 + "] total stairs, is " + climbingStairsA(2) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 3 + "] total stairs, is " + climbingStairsA(3) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 4 + "] total stairs, is " + climbingStairsA(4) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 5 + "] total stairs, is " + climbingStairsA(5) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 6 + "] total stairs, is " + climbingStairsA(6) + ".");
+
+    function climbingStairs (totalSteps) {
+        if (totalSteps <= 3) {
+            return parseInt(totalSteps);
+        }
+        return parseInt(climbingStairs(totalSteps - 1) + climbingStairs(totalSteps - 2));
+    }
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 1 + "] total stairs, is " + climbingStairs(1) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 2 + "] total stairs, is " + climbingStairs(2) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 3 + "] total stairs, is " + climbingStairs(3) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 4 + "] total stairs, is " + climbingStairs(4) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 5 + "] total stairs, is " + climbingStairs(5) + ".");
+    console.log("Total number of ways Tauntaun can reach the top, based on [" + 6 + "] total stairs, is " + climbingStairs(6) + ".");
+
+    function climbStairs (totalSteps) {
+        if (totalSteps <=)
+            return parseInt(climbingStairs(totalSteps - 1) + climbingStairs(totalSteps - 2));
+    }
+
+    console.log(climbStairs(1));
+    console.log(climbStairs(2));
+    console.log(climbStairs(3));
+    console.log(climbStairs(4));
+    console.log(climbStairs(5));
+    console.log(climbStairs(6));
+
+})();
